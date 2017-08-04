@@ -1,0 +1,9 @@
+﻿{
+ "TestResult": "Test Result",
+  "UnknownProviderType": "The Provider specified is unknown",
+  "UnopenedProvider": "The Provider Open() method has not been invoked",
+  "AddUserFail": "Failed to add user",
+  "GetUserFail": "Failed to get users",
+  "PutUserFail": "Failed to update user",
+  "PersonDoesNotExist":  "Person Id {0} does not exists"    
+}

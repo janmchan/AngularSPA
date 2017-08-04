@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Age Ranger</title>
+    <!--Nuget Angular.Core seems to have a bug-->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular-route.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/AngularMvcApp")
+</head>
+<body ng-app="AgeRangerApp">
+    <header>
+        <div class="container" ng-controller="menuController">
+            <div id="branding"><h1>Age Ranger</h1></div>
+            <nav id="navigation">
+                <a href="/#/" ng-class="getClass('/')">View People</a>
+                <a href="/#/addPerson" ng-class="getClass('/addPerson')">Add Person</a>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <div ng-view class="container">
+            Loading...
+        </div>    
+    </section>
+</body>
+</html>

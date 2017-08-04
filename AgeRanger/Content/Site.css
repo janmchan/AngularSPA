@@ -1,0 +1,64 @@
+﻿/*Remove all margis and set found*/
+body {
+    font: 20px/25px "Arial", "Helvetica", "Sans-Serif";
+    margin: 0;
+    padding: 0;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.highlight {
+    color: orange;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header #branding {
+    margin-left: 10px;
+    float:left;
+}
+#navigation {
+margin-right: 10px;
+}
+
+header {
+    background: #35424a;
+    border-bottom: #e8491d 3px solid;
+    color: white;
+}
+header nav{
+    margin-top: 10px;
+    float: right;
+}
+header nav a,  header nav a:hover {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+    
+}
+ header nav a:hover,  header nav a:focus{
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#e8491d;
+    font-size: 16px;
+    
+}
+
+.form-style{
+  width: 100%;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+    padding: 10px;
+}

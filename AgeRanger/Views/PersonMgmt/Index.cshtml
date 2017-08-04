@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div ng-controller="PeopleController">
+    <form id="SearchUserForm" class="form-inline form-style">
+        <div class="form-group">
+            <label class="control-label">First Name</label>
+            <input  class="form-control" ng-model="search.FirstName"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Last Name</label> 
+            <input class="form-control" ng-model="search.LastName"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Age</label> 
+            <input class="form-control" ng-model="search.Age"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Age Group</label>
+            <input class="form-control" ng-model="search.AgeGroup"/>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Age Group</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-show="!Persons.length">
+            <td colspan="4" class="alert-warning">There are no existing record</td>
+        </tr>
+        <tr ng-repeat="Person in Persons | filter:search:strict">
+            <td>{{ Person.FirstName }}</td>
+            <td>{{ Person.LastName }}</td>
+            <td>{{ Person.Age }}</td>
+            <td>{{ Person.AgeGroup }}</td>
+            <td><a href="/#/updatePerson/{{ Person.Id }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
