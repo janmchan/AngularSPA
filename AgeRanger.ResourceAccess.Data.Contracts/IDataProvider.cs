@@ -15,7 +15,7 @@ namespace AgeRanger.ResourceAccess.Data.Contracts
 		Task<int> ExecuteNonQuery<IDataAccessObject>(string query, IDataAccessObject entity, DbParameter[] parameters = null);
 
 		Task<object> ExecuteScalar(string query, DbParameter[] parameters = null);
-        void Open();
+        void CreateAndOpen();
         DbParameter CreateParameter();
 
         DbCommand Command { get; set; }

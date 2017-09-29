@@ -17,7 +17,7 @@ namespace AgeRanger.ResourceAccess.Data.Providers
         {
             connectionString = config.AgeRangerDb;
         }
-        public void Open()
+        public void CreateAndOpen()
         {
             var connection = new SqlConnection(connectionString);
             Command = new SqlCommand();

@@ -16,7 +16,7 @@ namespace AgeRanger.ViewModels
             Id = person.Id;
             FirstName = person.FirstName;
             LastName = person.LastName;
-            Age = person.Age ?? 0;
+            Age = person.Age ?? 1;
             var group = (from ag in ageGroups
                         where Age >= ag.MinAge && Age < ag.MaxAge
                          select ag.Description).FirstOrDefault();

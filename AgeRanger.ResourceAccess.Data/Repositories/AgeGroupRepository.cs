@@ -10,6 +10,8 @@ using AgeRanger.ResourceAccess.Data.Contracts.Repositories;
 using AgeRanger.ResourceAccess.Data.Mappers;
 using AgeRanger.ResourceAccess.Data.Models;
 using System.Threading.Tasks;
+using Dapper;
+using System.Linq;
 
 namespace AgeRanger.ResourceAccess.Data.Repositories
 {
@@ -25,32 +27,23 @@ namespace AgeRanger.ResourceAccess.Data.Repositories
         }
         public async Task<IEnumerable<IAgeGroup>> Find()
         {
-            var query = "Select Id, MinAge, MaxAge, Description from AgeGroup;";
-            _dataProvider.Open();
-            using (_dataProvider)
+            var query = "Select Id, MinAge, MaxAge, Description from AgeGroup";
+            _dataProvider.CreateAndOpen();
+            using (_dataProvider.Connection)
             {
-                var result = await _dataProvider.ExecuteReader(query);
-                return _mapper.Map(result);
+                return await _dataProvider.Connection.QueryAsync<AgeGroup>(query);
             }
         }
 
         public async Task<IAgeGroup> FindById(int id)
         {
-            var query = string.Concat("Select Id, MinAge, MaxAge, Description from AgeGroup "
-                                ,"where Id = @Id;");
-            var parameters = new List<DbParameter>();
-            _dataProvider.Open();
-            using (_dataProvider)
-            {
-                var idParameter = _dataProvider.CreateParameter();
-                idParameter.Value = id;
-                idParameter.ParameterName = "Id";
-                parameters.Add(idParameter);
-
-                var result = await _dataProvider.ExecuteReader(query, parameters.ToArray());
-                var mappedResult = _mapper.Map(result);
-                return mappedResult.Count > 0 ? mappedResult[0] : new AgeGroup();
-            }
+            var query = "Select Id, MinAge, MaxAge, Description from AgeGroup where Id = @Id";
+			_dataProvider.CreateAndOpen();
+			using (_dataProvider.Connection)
+			{
+				var result = await _dataProvider.Connection.QueryAsync<AgeGroup>(query, new { Id = id });
+				return result.Any() ? result.Single() : new AgeGroup();
+			}
         }
     }
 }

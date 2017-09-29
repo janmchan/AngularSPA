@@ -22,7 +22,7 @@ namespace AgeRanger.ResourceAccess.Data.Providers
             _connectionString = config.AgeRangerDb;
         }
 
-        public void Open()
+        public void CreateAndOpen()
         {
             var connection  = new SQLiteConnection(_connectionString.Replace("{AppDir}", AppDomain.CurrentDomain.BaseDirectory));
             Command = new SQLiteCommand(connection);

@@ -16,12 +16,12 @@ namespace AgeRanger.Tests.ViewModels
     public class PersonModelTests
     {
         private IQueryable<IAgeGroup> _ageGroups;
-        private string[] ageGroups = new string[] { "GroupA", "GroupB", "GroupC" };
+        private string[] ageGroups = new string[] { "GroupA", "GroupC", "GroupC" };
         [TestInitialize]
         public void Initialize()
         {
             var ageGroupList = new List<IAgeGroup>();
-            ageGroupList.Add(new AgeGroup() { MaxAge = 40, MinAge = 0, Description = ageGroups[0] });
+            ageGroupList.Add(new AgeGroup() { MaxAge = 40, MinAge = 1, Description = ageGroups[0] });
             ageGroupList.Add(new AgeGroup() { MaxAge = 60, MinAge = 41, Description = ageGroups[1] });
             ageGroupList.Add(new AgeGroup() { MaxAge = 80, MinAge = 61, Description = ageGroups[2] });
             _ageGroups = ageGroupList.AsQueryable();

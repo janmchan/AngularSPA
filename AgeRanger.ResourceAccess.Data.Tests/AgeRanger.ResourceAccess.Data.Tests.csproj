@@ -84,8 +84,6 @@
     <Compile Include="Mappers\AgeGroupMapperTests.cs" />
     <Compile Include="Providers\SqlLiteProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AgeGroupRepositoryTests.cs" />
-    <Compile Include="Repositories\PersonRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AgeRanger.Core.Contracts\AgeRanger.Core.Contracts.csproj">
